@@ -5,16 +5,15 @@ namespace M2LenchenkoV4
 {
     class LeafFactory
     {
-        public static float CreateNewChild()
+        public static MainComp CreateNewChild()
         {
             Console.WriteLine("Want some more distribution?");
             switch (Console.ReadLine())
             {
                 case "y":
-                    var sb = new SubLeaf();
-                    return sb.GetTotal();
+                    return new SubLeaf();
                 case "n":
-                    return 0;
+                    return null;
                 default:
                     throw new Exception("Only 'y' or 'n'.");
             }
