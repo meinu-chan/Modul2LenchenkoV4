@@ -25,12 +25,12 @@ namespace M2LenchenkoV4
 
         public SubLeaf()
         {
-            this._sale += 100 * this._salenum;
+            this._sale += 100 * this._salenum + this.GetTotal();
         }
 
         public override float GetTotal()
         {
-            return this._sale * .05f;
+            return this._sale * .05f + LeafFactory.CreateNewChild();
         }
     }
 }

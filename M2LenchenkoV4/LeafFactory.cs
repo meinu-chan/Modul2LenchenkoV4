@@ -5,28 +5,34 @@ namespace M2LenchenkoV4
 {
     class LeafFactory
     {
-        public static MainComp CreateNewChild(SubLeaf sb)
+        public static float CreateNewChild()
         {
             Console.WriteLine("Want some more distribution?");
             switch (Console.ReadLine())
             {
                 case "y":
-                    return new SubLeaf();
+                    var sb = new SubLeaf();
+                    return sb.GetTotal();
                 case "n":
-                    sb.GetTotal();
-                    return sb;
+                    return 0;
                 default:
                     throw new Exception("Only 'y' or 'n'.");
             }
         }
 
-        //private static int GetSaleNum()
-        //{
-        //    Console.Write("Enter number for children's sales: ");
-        //    int n = int.Parse(Console.ReadLine());
-        //    if (n <= 0)
-        //        throw new Exception("Invalid number(SubLeaf19)");
-        //    return n;
-        //}
+        public static int GetSaleNum()
+        {
+            Console.Write("Enter number of sales: ");
+            int nsale = int.Parse(Console.ReadLine());
+            return (nsale <= 0) ? throw new Exception("Invalid number(nsub)") : nsale;
+        }
+
+        public static int GetSubNum()
+        {
+            Console.Write("Enter subdistribution: ");
+            int nsub = int.Parse(Console.ReadLine());
+            return (nsub <= 0) ? throw new Exception("Invalid number(nsub)") : nsub;
+        }
+
     }
 }
