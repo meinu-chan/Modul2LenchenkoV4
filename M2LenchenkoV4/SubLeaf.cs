@@ -12,7 +12,6 @@ namespace M2LenchenkoV4
         private int _salenum 
         {
             get => GetSaleNum();
-            set => GetSaleNum();                   
         }
 
         private int GetSaleNum()
@@ -27,31 +26,6 @@ namespace M2LenchenkoV4
         public SubLeaf()
         {
             this._sale += 100 * this._salenum;
-            MoreChildren();
-        }
-
-        private void MoreChildren()
-        {
-            Console.WriteLine("Want some more distribution?");
-            switch(Console.ReadLine())
-            {
-                case "y":
-                    CreateChild();
-                    break;
-                case "n":
-                    GetTotal();
-                    break;
-                default:
-                    throw new Exception("Only 'y' or 'n'.");
-            }
-        }
-
-        private void CreateChild()
-        {
-            float sum = 0;
-            var sb = new SubLeaf();
-            sum += sb.GetTotal();
-            this._sale += sum;
         }
 
         public override float GetTotal()

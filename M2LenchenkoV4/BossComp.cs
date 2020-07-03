@@ -38,9 +38,11 @@ namespace M2LenchenkoV4
 
         private void AddChild(List<MainComp> mc, int index)
         {
+            var sb = new SubLeaf();
             for (int i = 0; i < index; i++)
             {
-                mc.Add(new SubLeaf());
+                mc.Add(LeafFactory.CreateNewChild(sb));
+                
             }
 
         }
